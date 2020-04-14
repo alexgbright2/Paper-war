@@ -1,0 +1,111 @@
+<?xml version="1.0" standalone="no"?>
+<unit>
+	
+
+	
+
+	<parameters>
+		<size value="4"/>
+		<height value="4"/>
+		<ai-build-size value="4"/>
+		<burn-height value="6" />
+		<target-height value="7" />
+		<max-hp value="10000" regeneration="0"/>
+		<max-ep value="0"/>
+		<armor value="20"/>
+		<armor-type value="stone"/>
+		<sight value="16"/>
+		<time value="2"/>
+		<multi-selection value="false"/>
+		<cellmap value="false"/>
+		<levels/>
+		<fields>
+			<field value="land"/>
+		</fields>
+		<properties>
+			
+		</properties>
+		<count-in-victory-conditions="false"/>
+		<light enabled="false"/>
+		<rotationAllowed value="true" />
+		<unit-requirements>
+			
+		</unit-requirements>
+		<upgrade-requirements>
+			
+		</upgrade-requirements>
+		<resource-requirements>
+			<resource name="stone" amount="100"/>
+		</resource-requirements>
+		<resources-stored/>
+		<image path="images/defense_tower.bmp"/>
+		<image-cancel path="../archer/images/tech_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/tech_click.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="$COMMONDATAPATH/sounds/tech_click.wav"/>
+		</command-sounds>
+
+	</parameters>
+	<skills>
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="100"/>
+			<animation path="models/frontgate.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		<skill>
+			<type value="morph"/>
+			<name value="morph_skill"/>
+			<ep-cost value="0"/>
+			<speed value="1500"/>
+			<anim-speed value="80"/>
+			<animation path="models/frontgate.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		<skill>
+			<type value="be_built"/>
+			<name value="be_built_skill"/>
+			<ep-cost value="0"/>
+			<speed value="3"/>
+			<anim-speed value="300"/>
+			<animation path="models/defense_tower_construction.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="300"/>
+			<animation path="../castle/destruction_models/defense_tower_destruction.g3d"/>
+			<particles value="true">
+				
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="$COMMONDATAPATH/sounds/tech_building_fall5.wav"/>
+			</sound>
+			<fade value="false"/>
+		</skill>
+	</skills>
+	<commands>
+		
+		<command>
+			<type value="morph"/>
+			<name value="open_gate"/>
+			<image path="../gateopen/images/defense_tower.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<morph-skill value="morph_skill"/>
+			<morph-unit name= "gateopen"/>
+			<discount value="60"/>
+		</command>
+		
+	</commands>
+</unit>
