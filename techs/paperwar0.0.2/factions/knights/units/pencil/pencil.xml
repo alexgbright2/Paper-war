@@ -1,0 +1,283 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="1"/>
+		<height value="2"/>
+		<max-hp value="600" regeneration="1"/>
+		<max-ep value="0"/>
+		<armor value="0"/>
+		<armor-type value="wood"/>
+		<sight value="9"/>
+		<time value="40"/>
+		<multi-selection value="true"/>
+		<cellmap value="false"/>
+		<levels/>
+		<fields>
+			<field value="land"/>
+		</fields>
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="75" />
+			<resource name="stone" amount="0" />
+			<resource name="wood" amount="1" />
+		</resource-requirements>
+		<resources-stored>
+		</resources-stored>
+		<image path="images/pencil.bmp"/>
+		<image-cancel path="../archer/images/tech_cancel.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="false">
+			
+		</selection-sounds>
+		<command-sounds enabled="false">
+			
+		</command-sounds>
+	</parameters>
+
+	<!-- *** skills *** -->
+
+	<skills>
+
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="55"/>
+			<animation path="models/pencil.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>
+			<ep-cost value="0"/>
+			<speed value="290"/>
+			<anim-speed value="130"/>
+			<animation path="models/pencil.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="build"/>
+			<name value="build_skill"/>
+			<ep-cost value="0"/>
+			<speed value="100"/>
+			<anim-speed value="50"/>
+			<animation path="models/pencil_draw.g3d"/>
+			<sound enabled="true" start-time="0.5">
+				<sound-file path="$COMMONDATAPATH/sounds/worker_build1.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/worker_build2.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/worker_build3.wav"/>
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="repair"/>
+			<name value="repair_skill"/>
+			<ep-cost value="0"/>
+			<speed value="70"/>
+			<anim-speed value="50"/>
+			<animation path="models/pencil_draw_repair.g3d"/>
+			<sound enabled="true" start-time="0.5">
+				<sound-file path="$COMMONDATAPATH/sounds/worker_build1.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/worker_build2.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/worker_build3.wav"/>
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="produce"/>
+			<name value="summon_skill"/>
+			<ep-cost value="0"/>
+			<speed value="80"/>
+			<anim-speed value="50"/>
+			<animation path="models/pencil_draw_unit.g3d"/>
+			<sound enabled="true" start-time="0.3">
+				<sound-file path="$COMMONDATAPATH/sounds/worker_build1.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/worker_build2.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/worker_build3.wav"/>
+			</sound>
+		</skill>
+		
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>
+			<ep-cost value="0"/>
+			<speed value="90"/>
+			<anim-speed value="90"/>
+			<animation path="models/worker_dying.g3d"/>
+			<sound enabled="false" start-time="0">
+				
+			</sound>
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+
+	<!-- *** commands *** -->
+
+	<commands>
+
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../archer/images/tech_stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value= "move"/>
+			<name value="move"/>
+			<image path="../archer/images/tech_move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		
+		
+
+		
+
+
+		<command>
+			<type value= "build"/>
+			<name value="buildings"/>
+			<image path="images/worker_build_basic.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<build-skill value="build_skill"/>
+			<buildings>
+				<building name="farm"/>
+				<building name="house"/>
+				<building name="barracks"/>
+				<building name="blacksmith"/>
+				<building name="stables"/>
+				<building name="siege_workshop"/>
+				<building name="defense_tower"/>
+				<building name="castle"/>
+			</buildings>
+			<start-sound enabled="false"/>
+			<built-sound enabled="true">
+				<sound-file path="$COMMONDATAPATH/sounds/worker_work_end1.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/worker_work_end2.wav"/>
+				<sound-file path="$COMMONDATAPATH/sounds/worker_work_end3.wav"/>
+			</built-sound>
+		</command>
+
+		<command>
+			<type value="repair"/>
+			<name value="repair"/>
+			<image path="images/worker_repair.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<repair-skill value="repair_skill"/>
+			<repaired-units>
+				<unit name="stables"/>
+				<unit name="siege_workshop"/>
+				<unit name="house"/>
+				<unit name="farm"/>
+				<unit name="defense_tower"/>
+				<unit name="barracks"/>
+				<unit name="blacksmith"/>
+				<unit name="castle"/>
+			</repaired-units>
+		</command>		
+
+		<command>
+			<type value="produce"/>
+			<name value="draw_worker" />
+			<image path="images/worker.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<produce-skill value="summon_skill"/>
+			<produced-unit name="worker"/>
+		</command>
+		
+		<command>
+			<type value="produce"/>
+			<name value="draw_swordsmen" />
+			<image path="images/swordman.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<produce-skill value="summon_skill"/>
+			<produced-unit name="swordman"/>
+		</command>
+		
+		<command>
+			<type value="produce"/>
+			<name value="draw_archer" />
+			<image path="images/archer.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<produce-skill value="summon_skill"/>
+			<produced-unit name="archer"/>
+		</command>
+	
+		<command>
+			<type value="produce"/>
+			<name value="draw_spearman" />
+			<image path="images/spearman.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<produce-skill value="summon_skill"/>
+			<produced-unit name="spearman"/>
+		</command>
+		
+		<command>
+			<type value="produce"/>
+			<name value="draw_knight" />
+			<image path="images/knight.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<produce-skill value="summon_skill"/>
+			<produced-unit name="knight"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="draw_ranger" />
+			<image path="images/ranger.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<produce-skill value="summon_skill"/>
+			<produced-unit name="ranger"/>
+		</command>
+	
+		<command>
+			<type value="produce"/>
+			<name value="draw_horseman" />
+			<image path="images/horseman.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<produce-skill value="summon_skill"/>
+			<produced-unit name="horseman"/>
+		</command>
+	
+		<command>
+			<type value="produce"/>
+			<name value="draw_catapult" />
+			<image path="images/catapult.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<produce-skill value="summon_skill"/>
+			<produced-unit name="catapult"/>
+		</command>
+
+		
+	</commands>
+</unit>

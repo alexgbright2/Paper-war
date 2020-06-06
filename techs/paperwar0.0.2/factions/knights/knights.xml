@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="no"?>
+
+<faction>
+	<starting-resources>
+		<resource name="gold" amount="500"/>
+		<resource name="wood" amount="500"/>
+		<resource name="stone" amount="500"/>
+		<resource name="food" amount="50"/>
+		<resource name="housing" amount="20"/>
+	</starting-resources>
+	<starting-units>
+		<unit name="castle" amount="1"/>
+		<unit name="catapult" amount="0"/>
+		<unit name="pencil" amount="1"/>
+	</starting-units>
+	<music value="true" path="music/music_tech.ogg"/>
+	<flat-particle-positions value="true"/>
+	<ai-behavior>
+		<worker-units>
+			<unit name="worker" minimum="16"/>
+		</worker-units>
+		<warrior-units>
+			<unit name="swordman" minimum="2"/>
+			<unit name="archer" minimum="2"/>
+			<unit name="spearman" minimum="2"/>
+		</warrior-units>
+		<resource-producer-units>
+			<unit name="house" minimum="5"/>
+			<unit name="farm" minimum="1"/>
+			<unit name="pig" minimum="5"/>
+		</resource-producer-units>
+		<building-units>
+			<unit name="barracks" minimum="1"/>
+			<unit name="farm" minimum="1"/>
+			<unit name="blacksmith" minimum="1"/>
+			<unit name="stables" minimum="1"/>
+		</building-units>
+		<upgrades>
+			<upgrade name="way_of_the_bow"/>
+			<upgrade name="men_at_arms"/>
+			<upgrade name="tip_of_the_spear"/>
+			<upgrade name="light_armor"/>
+			<upgrade name="heavy_armor"/>
+		</upgrades>
+		<static-values/>
+	</ai-behavior>
+</faction>
